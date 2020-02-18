@@ -22,7 +22,6 @@ import java.util.Map;
 {{/fullJavaUtil}}
 
 import java.util.concurrent.*;
-import retrofit2.Response;
 
 {{#operations}}
 public interface {{classname}} {
@@ -50,7 +49,7 @@ public interface {{classname}} {
   {{/prioritizedContentTypes}}
   {{/formParams}}
   @{{httpMethod}}("{{{path}}}")
-  CompletionStage<Response<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}Void{{/returnType}}>> {{operationId}}({{^allParams}});{{/allParams}}
+  CompletionStage<retrofit2.Response<{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}Void{{/returnType}}>> {{operationId}}({{^allParams}});{{/allParams}}
     {{#allParams}}{{>libraries/retrofit2/queryParams}}{{>libraries/retrofit2/pathParams}}{{>libraries/retrofit2/headerParams}}{{>libraries/retrofit2/bodyParams}}{{>libraries/retrofit2/formParams}}{{#hasMore}}, {{/hasMore}}{{^hasMore}}
   );{{/hasMore}}{{/allParams}}
 
